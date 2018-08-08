@@ -58,7 +58,7 @@ namespace BinaryTrees
             BreadQeue.Enqueue(RootLeaf);
             while (BreadQeue.Count != 0)
             {
-                
+                _nodeCount++;
                 var Temp = BreadQeue.Peek();
 
                 if (Temp.Left != null) BreadQeue.Enqueue(Temp.Left);
@@ -145,6 +145,18 @@ namespace BinaryTrees
             PostOrderTraverseRecursion(leaf.Right);
             _postOrderResultQeue.Enqueue(leaf);
 
+        }
+
+        #endregion
+
+        #region NodeCount
+
+        private int _nodeCount;
+        public int NodeCount()
+        {
+            _nodeCount = 0;
+            BreadthFirstSearch();
+            return _nodeCount;
         }
 
         #endregion
