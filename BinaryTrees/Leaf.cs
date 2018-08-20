@@ -1,12 +1,12 @@
 ﻿namespace BinaryTrees
 {
-    public class Leaf
+    public class Leaf<T>
     {
-        public Leaf Left { get; set; }
-        public Leaf Right { get; set; }
-        public int Data { get; set; }
+        public Leaf<T> Left { get; set; }
+        public Leaf<T> Right { get; set; }
+        public T Data { get; set; }
 
-        public Leaf(int data)
+        public Leaf(T data)
         {
             Data = data;
         }

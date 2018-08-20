@@ -5,10 +5,17 @@ C:\Users\gevbancud\source\repos\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.ex
 C:\Users\gevbancud\source\repos\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.pdb
 C:\Users\gevbancud\source\repos\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.exe
 C:\Users\gevbancud\source\repos\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.pdb
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe.config
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.pdb
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csprojResolveAssemblyReference.cache
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.exe
-C:\Users\gemba\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csprojAssemblyReference.cache
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.exe
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe.config
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe
+C:\Users\gevbancud\Desktop\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe.config
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\bin\Debug\BinaryTrees.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csprojResolveAssemblyReference.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.pdb

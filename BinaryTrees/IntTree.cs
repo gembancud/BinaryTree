@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography.X509Certificates;
+using System.IO;
 
 namespace BinaryTrees
 {
-    public class IntTree
+    public class IntTree<T>
     {
-        public Leaf Left { get; set; }
-        public Leaf Right { get; set; }
-        private Leaf RootLeaf { get; set; }
-        public int RootData { get; set; }
+        public Leaf<T> Left { get; set; }
+        public Leaf<T> Right { get; set; }
+        protected Leaf<T> RootLeaf { get; set; }
+        public T RootData { get; set; }
         public int Level { get; set; }
         public int Count { get; set; }
 
@@ -19,11 +19,11 @@ namespace BinaryTrees
             Count = 0;
         }
 
-        public void AddLeaf(int data)
+        public virtual void AddLeaf(T data)
         {
             if (RootLeaf == null)
             {
-                RootLeaf = new Leaf(data);
+                RootLeaf = new Leaf<T>(data);
                 RootData = RootLeaf.Data;
             }
             else
@@ -35,30 +35,30 @@ namespace BinaryTrees
             Count++;
         }
 
-        private void RecursiveAddLeaf(int data, Leaf leaf)
+        private void RecursiveAddLeaf(T data, Leaf<T> leaf)
         {
-            if (data <= leaf.Data)
+            if (Comparer<T>.Default.Compare(data, leaf.Data) == -1) 
             {
-                if (leaf.Left == null) leaf.Left = new Leaf(data);
+                if (leaf.Left == null) leaf.Left = new Leaf<T>(data);
                 else RecursiveAddLeaf(data, leaf.Left);
             }
-            else if (data > leaf.Data)
+            else if (Comparer<T>.Default.Compare(data, leaf.Data) == 1)
             {
-                if (leaf.Right == null) leaf.Right = new Leaf(data);
+                if (leaf.Right == null) leaf.Right = new Leaf<T>(data);
                 else RecursiveAddLeaf(data, leaf.Right);
             }
         }
 
         #region BreadthFirstSearch
 
-        public Queue<Leaf> BreadthFirstSearch()
+        public Queue<Leaf<T>> BreadthFirstSearch()
         {
-            Queue<Leaf> ResultQeue = new Queue<Leaf>();
-            var BreadQeue = new Queue<Leaf>();
+            Queue<Leaf<T>> ResultQeue = new Queue<Leaf<T>>();
+            var BreadQeue = new Queue<Leaf<T>>();
             BreadQeue.Enqueue(RootLeaf);
             while (BreadQeue.Count != 0)
             {
-                _nodeCount++;
+                _maxHeightResult++;
                 var Temp = BreadQeue.Peek();
 
                 if (Temp.Left != null) BreadQeue.Enqueue(Temp.Left);
@@ -75,15 +75,15 @@ namespace BinaryTrees
         #region InOrderSearch
 
 
-        Queue<Leaf> _inOrderResultQeue = new Queue<Leaf>();
-        public Queue<Leaf> InOrderTraverse()
+        Queue<Leaf<T>> _inOrderResultQeue = new Queue<Leaf<T>>();
+        public Queue<Leaf<T>> InOrderTraverse()
         {
             _inOrderResultQeue.Clear();
             InOrderTraverseRecursion(RootLeaf);
             return _inOrderResultQeue;
         }
 
-        private void InOrderTraverseRecursion(Leaf leaf)
+        private void InOrderTraverseRecursion(Leaf<T> leaf)
         {
             if (leaf == null)
             {
@@ -100,15 +100,15 @@ namespace BinaryTrees
 
         #region PreOrderSearch
 
-        Queue<Leaf> _preOrderResultQeue = new Queue<Leaf>();
-        public Queue<Leaf> PreOrderTraverse()
+        Queue<Leaf<T>> _preOrderResultQeue = new Queue<Leaf<T>>();
+        public Queue<Leaf<T>> PreOrderTraverse()
         {
             _preOrderResultQeue.Clear();
             PreOrderTraverseRecursion(RootLeaf);
             return _preOrderResultQeue;
         }
 
-        private void PreOrderTraverseRecursion(Leaf leaf)
+        private void PreOrderTraverseRecursion(Leaf<T> leaf)
         {
             if (leaf == null)
             {
@@ -126,15 +126,15 @@ namespace BinaryTrees
 
         #region PostOrderSearch
 
-        Queue<Leaf> _postOrderResultQeue = new Queue<Leaf>();
-        public Queue<Leaf> PostOrderTraverse()
+        Queue<Leaf<T>> _postOrderResultQeue = new Queue<Leaf<T>>();
+        public Queue<Leaf<T>> PostOrderTraverse()
         {
             _postOrderResultQeue.Clear();
             PostOrderTraverseRecursion(RootLeaf);
             return _postOrderResultQeue;
         }
 
-        private void PostOrderTraverseRecursion(Leaf leaf)
+        private void PostOrderTraverseRecursion(Leaf<T> leaf)
         {
             if (leaf == null)
             {
@@ -145,18 +145,6 @@ namespace BinaryTrees
             PostOrderTraverseRecursion(leaf.Right);
             _postOrderResultQeue.Enqueue(leaf);
 
-        }
-
-        #endregion
-
-        #region NodeCount
-
-        private int _nodeCount;
-        public int NodeCount()
-        {
-            _nodeCount = 0;
-            BreadthFirstSearch();
-            return _nodeCount;
         }
 
         #endregion
@@ -174,7 +162,7 @@ namespace BinaryTrees
         }
 
         private int RightChildrenCountResult;
-        private void RightChildrenCountRecursion(Leaf leaf)
+        private void RightChildrenCountRecursion(Leaf<T> leaf)
         {
             if (leaf == null)
                 return;
@@ -186,16 +174,14 @@ namespace BinaryTrees
 
         #region MaxHeight
 
+        private int _maxHeightResult;
         public int MaxHeight()
         {
-           return MaxHeightRecursion(RootLeaf);
+            _maxHeightResult = 0;
+            BreadthFirstSearch();
+            return _maxHeightResult;
         }
 
-        private int MaxHeightRecursion(Leaf leaf)
-        {
-            if (leaf == null) return 0;
-            return Math.Max(MaxHeightRecursion(leaf.Left), MaxHeightRecursion(leaf.Right)) + 1;
-        }
         #endregion
 
         #region DeleteAllLeaves
@@ -205,7 +191,7 @@ namespace BinaryTrees
             DeleteAllLeavesRecursion(RootLeaf);
         }
 
-        private void DeleteAllLeavesRecursion(Leaf leaf)
+        private void DeleteAllLeavesRecursion(Leaf<T> leaf)
         {
             if (leaf == null) return;
 
@@ -217,9 +203,7 @@ namespace BinaryTrees
 
         }
 
-        #endregion
-
-        private bool CheckIfChildIsLeaf(Leaf leaf)
+        private bool CheckIfChildIsLeaf(Leaf<T> leaf)
         {
             if (leaf.Left == null && leaf.Right == null)
                 return true;
@@ -227,31 +211,51 @@ namespace BinaryTrees
             return false;
         }
 
-        #region LeafCount
-
-        private int _leafCount;
-        public int LeafCount()
-        {
-            _leafCount = 0;
-            LeafCountRecursion(RootLeaf);
-            return _leafCount;
-        }
-
-        public void LeafCountRecursion(Leaf leaf)
-        {
-            if (leaf == null) return;
-
-            if (leaf.Left == null && leaf.Right == null) _leafCount++;
-
-            LeafCountRecursion(leaf.Left);
-            LeafCountRecursion(leaf.Right);
-        }
-
         #endregion
 
-        public bool IsBalanced()
+        public Leaf<T> Search(T data)
         {
-            return Math.Pow(2,MaxHeight()-1) == LeafCount() ? true :false; 
+            Queue<Leaf<T>> ResultQeue = new Queue<Leaf<T>>();
+            var BreadQeue = new Queue<Leaf<T>>();
+            BreadQeue.Enqueue(RootLeaf);
+            while (BreadQeue.Count != 0)
+            {
+                _maxHeightResult++;
+                var Temp = BreadQeue.Peek();
+
+                if (Temp.Left != null) BreadQeue.Enqueue(Temp.Left);
+                if (Temp.Right != null) BreadQeue.Enqueue(Temp.Right);
+
+                if (Comparer<T>.Default.Compare(Temp.Data, data) == 0) return Temp;
+                ResultQeue.Enqueue(BreadQeue.Dequeue());
+
+            }
+            return null;
         }
+
+        public Leaf<T> DeleteByMerging(T data)
+        {
+            //Arrange
+            var byeLeaf = Search(data);
+            var newLeaf = byeLeaf.Left;
+            var rightBranch = byeLeaf.Right;
+            var rightMostLeaf = newLeaf;
+            while (rightMostLeaf != null)
+            {
+                rightMostLeaf = rightMostLeaf.Right;
+            }
+            //Act
+            if (byeLeaf.Right == null) byeLeaf = newLeaf;
+            else if (byeLeaf.Left == null) byeLeaf = rightBranch;
+            else {
+                byeLeaf = newLeaf;
+                rightMostLeaf.Right = rightBranch;
+            }
+
+            //End
+            return byeLeaf;
+        }
+
+
     }
 }

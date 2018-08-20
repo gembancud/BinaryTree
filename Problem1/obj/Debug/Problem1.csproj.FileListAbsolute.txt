@@ -9,3 +9,14 @@ C:\Users\gevbancud\source\repos\BinaryTrees\Problem1\obj\Debug\Problem1.csproj.C
 C:\Users\gevbancud\source\repos\BinaryTrees\Problem1\obj\Debug\Problem1.csproj.CopyComplete
 C:\Users\gevbancud\source\repos\BinaryTrees\Problem1\obj\Debug\Problem1.exe
 C:\Users\gevbancud\source\repos\BinaryTrees\Problem1\obj\Debug\Problem1.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\obj\Debug\Problem1.csprojAssemblyReference.cache
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\obj\Debug\Problem1.csproj.CoreCompileInputs.cache
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\obj\Debug\Problem1.exe
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\obj\Debug\Problem1.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\Problem1.exe.config
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\Problem1.exe
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\Problem1.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\BinaryTrees.exe
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\BinaryTrees.pdb
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\bin\Debug\BinaryTrees.exe.config
+C:\Users\gevbancud\Desktop\BinaryTrees\Problem1\obj\Debug\Problem1.csproj.CopyComplete
