@@ -11,14 +11,15 @@ namespace Assignment1
 
         public PolishArithmeticExpressionEvaluator()
         {
-            PolishArithmeticTree<char> sampleTree = new PolishArithmeticTree<char>();
+            PolishArithmeticTree<string> sampleTree = new PolishArithmeticTree<string>();
 
             while (true)
             {
+                Console.WriteLine("Sample Input: - 2 + * 3 4 5");
                 Console.Write("Input arithmetic string:");
                 string input = Console.ReadLine();
-
-                foreach (char c in input) sampleTree.AddLeaf(c);
+                string[] inputarray = input.Split(' ');
+                foreach (string c in inputarray) sampleTree.AddLeaf(c);
 
                 Console.WriteLine($"Evaluated Result: {sampleTree.Evaluate()}");
             }
