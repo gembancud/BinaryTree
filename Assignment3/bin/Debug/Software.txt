@@ -1,0 +1,5 @@
+AdobePhotoshop,CS5,21,580
+Norton Utilities,,10,50
+Norton SystemWorks,,2009,6,50
+Visual Studio Professional,2010,19,700
+Microsoft Office,2010,27,150

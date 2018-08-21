@@ -9,3 +9,14 @@ C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\Assignment1\obj\Debug\Assignmen
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\Assignment1\obj\Debug\Assignment1.csproj.CopyComplete
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\Assignment1\obj\Debug\Assignment1.exe
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\Assignment1\obj\Debug\Assignment1.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\Assignment1.exe.config
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\Assignment1.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\Assignment1.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\BinaryTrees.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\BinaryTrees.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\bin\Debug\BinaryTrees.exe.config
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\obj\Debug\Assignment1.csproj.CoreCompileInputs.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\obj\Debug\Assignment1.csproj.CopyComplete
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\obj\Debug\Assignment1.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\Assignment1\obj\Debug\Assignment1.pdb

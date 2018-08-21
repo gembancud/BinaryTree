@@ -19,3 +19,10 @@ C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTre
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.exe
 C:\Users\gemba\Desktop\Desktop Files\BinaryTrees\BinaryTrees\obj\Debug\BinaryTrees.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\bin\Debug\BinaryTrees.exe.config
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\bin\Debug\BinaryTrees.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\bin\Debug\BinaryTrees.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\obj\Debug\BinaryTrees.csprojResolveAssemblyReference.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\obj\Debug\BinaryTrees.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\BinaryTrees\obj\Debug\BinaryTrees.pdb

@@ -7,10 +7,23 @@ namespace BinaryTrees
 {
     public class IntTree<T>
     {
-        public Leaf<T> Left { get; set; }
-        public Leaf<T> Right { get; set; }
+        public Leaf<T> Left
+        {
+            get { return RootLeaf.Left; }
+        }
+        public Leaf<T> Right
+        {
+            get { return RootLeaf.Right; }
+        }
+
         protected Leaf<T> RootLeaf { get; set; }
-        public T RootData { get; set; }
+
+        public T RootData
+        {
+            get { return RootLeaf.Data; }
+            set { RootLeaf.Data = value; }
+
+        }
         public int Level { get; set; }
         public int Count { get; set; }
 
@@ -24,20 +37,16 @@ namespace BinaryTrees
             if (RootLeaf == null)
             {
                 RootLeaf = new Leaf<T>(data);
-                RootData = RootLeaf.Data;
             }
             else
                 RecursiveAddLeaf(data, RootLeaf);
-
-            Left = RootLeaf.Left;
-            Right = RootLeaf.Right;
 
             Count++;
         }
 
         private void RecursiveAddLeaf(T data, Leaf<T> leaf)
         {
-            if (Comparer<T>.Default.Compare(data, leaf.Data) == -1) 
+            if (Comparer<T>.Default.Compare(data, leaf.Data) == -1)
             {
                 if (leaf.Left == null) leaf.Left = new Leaf<T>(data);
                 else RecursiveAddLeaf(data, leaf.Left);
@@ -233,29 +242,125 @@ namespace BinaryTrees
             return null;
         }
 
+        #region DeleteByMerging
+
         public Leaf<T> DeleteByMerging(T data)
         {
             //Arrange
             var byeLeaf = Search(data);
+            if (byeLeaf == null) throw new Exception("Node not found in Tree");
+            var parentLeaf = FindParentRecursion(byeLeaf, RootLeaf);
             var newLeaf = byeLeaf.Left;
-            var rightBranch = byeLeaf.Right;
-            var rightMostLeaf = newLeaf;
-            while (rightMostLeaf != null)
+
+            if (parentLeaf == byeLeaf) //Special Case: Delete root
             {
-                rightMostLeaf = rightMostLeaf.Right;
-            }
-            //Act
-            if (byeLeaf.Right == null) byeLeaf = newLeaf;
-            else if (byeLeaf.Left == null) byeLeaf = rightBranch;
-            else {
-                byeLeaf = newLeaf;
-                rightMostLeaf.Right = rightBranch;
+                parentLeaf = parentLeaf.Left;
+                RootLeaf = parentLeaf;
             }
 
-            //End
+            var rightBranch = byeLeaf.Right;
+
+            if (newLeaf != null)
+            {
+                //Find Rightmost node of left subtree
+                var attachpoint = newLeaf;
+                while (attachpoint.Right != null)
+                {
+                    attachpoint = attachpoint.Right;
+                }
+
+                //Attach right subtree to rightmost node
+                attachpoint.Right = rightBranch;
+            }
+            else if (newLeaf == null) newLeaf = rightBranch;
+
+            if (parentLeaf.Left == byeLeaf) parentLeaf.Left = newLeaf;
+            else if (parentLeaf.Right == byeLeaf) parentLeaf.Right = newLeaf;
+            Count--;
             return byeLeaf;
         }
 
+        //Finds ParentLeaf
+        private Leaf<T> FindParentRecursion(Leaf<T> byeleaf, Leaf<T> leaf)
+        {
+            var result = byeleaf;
+            if (leaf.Left != null)
+            {
+                if (byeleaf == leaf.Left)
+                    result = leaf;
+                else result = FindParentRecursion(result, leaf.Left);
+            }
 
+            if (leaf.Right != null)
+            {
+                if (byeleaf == leaf.Right)
+                    result = leaf;
+                else result = FindParentRecursion(result, leaf.Right);
+            }
+
+            return result;
+        }
+
+        #endregion
+
+        public Leaf<T> DeleteByCopying(T data)
+        {
+            var byeLeaf = Search(data);
+            if (byeLeaf == null) throw new Exception("Node not found in Tree");
+            var parentLeaf = FindParentRecursion(byeLeaf, RootLeaf);
+
+            var newLeaf = byeLeaf.Left; // left of byeleaf
+            var replacingLeaf = newLeaf;
+            var rightBranch = byeLeaf.Right;
+
+            //case: is leaf, left then right
+            if (newLeaf == null)
+            {
+                if (rightBranch == null)
+                {
+                    if (parentLeaf.Left == byeLeaf) parentLeaf.Left = null;
+                    else if (parentLeaf.Right == byeLeaf) parentLeaf.Right = null;
+                    return byeLeaf;
+                }
+                else
+                {
+                    parentLeaf.Right = rightBranch;
+                    if (parentLeaf == byeLeaf) RootLeaf = RootLeaf.Right;
+                    return byeLeaf;
+                }
+            }
+
+            //Find the replacing Leaf
+            while (replacingLeaf.Right != null)
+            {
+                replacingLeaf = replacingLeaf.Right;
+            }
+
+            //case: delete root
+            if (parentLeaf == byeLeaf)
+            {
+                RootLeaf.Data = replacingLeaf.Data;
+                if (replacingLeaf == newLeaf) RootLeaf.Left = newLeaf.Left;
+            }
+
+            //Specialcase: Replacingleaf is the left 
+            if (replacingLeaf == newLeaf)
+            {
+                if (parentLeaf.Left == byeLeaf) parentLeaf.Left = replacingLeaf;
+                else if (parentLeaf.Right == byeLeaf) parentLeaf.Right = replacingLeaf;
+
+                replacingLeaf.Right = rightBranch;
+                return byeLeaf;
+            }
+
+            //Connects Children of replacing leaf to replacing leafs parent
+            if (replacingLeaf.Left != null) FindParentRecursion(replacingLeaf, RootLeaf).Right = replacingLeaf.Left;
+            else if (replacingLeaf.Left == null) FindParentRecursion(replacingLeaf, RootLeaf).Right = null;
+
+            if (parentLeaf.Left == byeLeaf) parentLeaf.Left.Data = replacingLeaf.Data;
+            else if (parentLeaf.Right == byeLeaf) parentLeaf.Right.Data = replacingLeaf.Data;
+            Count--;
+            return byeLeaf;
+        }
     }
 }

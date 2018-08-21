@@ -1,0 +1,10 @@
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\bin\Debug\SoftwareMenu.exe.config
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\bin\Debug\SoftwareMenu.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\bin\Debug\SoftwareMenu.pdb
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.csprojResolveAssemblyReference.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.Form1.resources
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.Properties.Resources.resources
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.csproj.GenerateResource.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.csproj.CoreCompileInputs.cache
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.exe
+C:\Users\gemba\Desktop\Desktop Files\BinaryTree\SoftwareMenu\obj\Debug\SoftwareMenu.pdb

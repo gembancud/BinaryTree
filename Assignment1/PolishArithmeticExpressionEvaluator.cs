@@ -39,8 +39,6 @@ namespace Assignment1
                 RecursiveAddLeaf(ref data, RootLeaf);
             }
 
-            Left = RootLeaf.Left;
-            Right = RootLeaf.Right;
 
             Count++;
 

@@ -10,6 +10,12 @@ namespace Assignment5
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("Default filename: test.txt");
+            AlphabetTree alphabetTree = new AlphabetTree();
+
+
+            Console.ReadLine();
         }
     }
 }
